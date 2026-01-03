@@ -17,7 +17,7 @@ import (
 
 // Configuration struct for API handlers
 type apiConfig struct {
-	DB *database.Queries
+	DB *database.Queries `json:"db" toml:"db" yaml:"db" xml:"db"`
 }
 
 func main() {
@@ -28,6 +28,7 @@ func main() {
 		log.Fatal("PORT is not set")
 	}
 	dbURL := os.Getenv("DB_URL")
+	
 	if dbURL == "" {
 		log.Fatal("DB_URL is not set")
 	}
